@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sham Imbiss Menu - Syrian Specialties</title>
+  <meta name="description" content="Explore our full menu at Sham Imbiss Ochsenfurt. Shawarma, Falafel, Hummus and more." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: white;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    
+    /* Menu Slider Styles */
+    .menu-slider-page {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    
+    .slider-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    
+    .slider {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+    
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .slide img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    
+    .slider-controls {
+      position: fixed;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      z-index: 1002;
+    }
+    
+    .slider-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .slider-btn:hover {
+      background-color: #4CAF50;
+      transform: scale(1.1);
+    }
+    
+    .close-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      z-index: 1002;
+    }
+    
+    .close-btn:hover {
+      background-color: #4CAF50;
+      transform: scale(1.1);
+    }
+    
+    .slide-indicators {
+      position: fixed;
+      bottom: 100px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      z-index: 1001;
+    }
+    
+    .indicator {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .indicator.active {
+      background-color: #4CAF50;
+      transform: scale(1.3);
+    }
+    
+    .slide-counter {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 18px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 8px 15px;
+      border-radius: 20px;
+      z-index: 1001;
+    }
+    
+    /* Loading animation */
+    .slide-loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      border-top: 5px solid #4CAF50;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      z-index: 999;
+    }
+    
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .slider-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+      }
+      
+      .close-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+      
+      .slide-counter {
+        font-size: 16px;
+        padding: 6px 12px;
+      }
+    }
+  </style>
+</head>
+<body class="menu-slider-page">
+  <button class="close-btn" onclick="closeSlider()">
+    <i class="fas fa-times"></i>
+  </button>
+  
+  <div class="slide-counter" id="slideCounter">1 / 2</div>
+  
+  <div class="slider-container">
+    <div class="slider" id="menuSlider">
+      <div class="slide">
+        <img src="IMG/menu.jpeg" alt="Menu Part 1">
+      </div>
+      <div class="slide">
+        <img src="IMG/menu 1.jpeg" alt="Menu Part 2">
+      </div>
+    </div>
+  </div>
+  
+  <div class="slider-controls">
+    <button class="slider-btn" id="prevBtn">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="slider-btn" id="nextBtn">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+  
+  <div class="slide-indicators" id="indicators">
+    <span class="indicator active" data-index="0"></span>
+    <span class="indicator" data-index="1"></span>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const slider = document.getElementById('menuSlider');
+      const slides = document.querySelectorAll('.slide');
+      const indicators = document.querySelectorAll('.indicator');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const slideCounter = document.getElementById('slideCounter');
+      let currentSlide = 0;
+      let isAnimating = false;
+      
+      // Preload images for better user experience
+      const imageUrls = ['IMG/menu.jpeg', 'IMG/menu 1.jpeg'];
+      let loadedImages = 0;
+      
+      imageUrls.forEach(url => {
+        const img = new Image();
+        img.src = url;
+        img.onload = () => {
+          loadedImages++;
+          if (loadedImages === imageUrls.length) {
+            document.querySelectorAll('.slide img').forEach(img => {
+              img.style.opacity = 1;
+            });
+          }
+        };
+      });
+      
+      function goToSlide(index) {
+        if (isAnimating) return;
+        
+        isAnimating = true;
+        
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        
+        slider.style.transform = `translateX(-${index * 100}%)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, i) => {
+          indicator.classList.toggle('active', i === index);
+        });
+        
+        // Update counter
+        slideCounter.textContent = `${index + 1} / ${slides.length}`;
+        
+        currentSlide = index;
+        
+        // Reset animation flag after transition
+        setTimeout(() => {
+          isAnimating = false;
+        }, 500);
+      }
+      
+      // Set up event listeners
+      prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+      nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+      
+      // Add click events to indicators
+      indicators.forEach(indicator => {
+        indicator.addEventListener('click', () => {
+          const index = parseInt(indicator.getAttribute('data-index'));
+          goToSlide(index);
+        });
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+        if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
+        if (e.key === 'Escape') closeSlider();
+      });
+      
+      // Swipe support for touch devices
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      slider.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, false);
+      
+      slider.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, false);
+      
+      function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+          goToSlide(currentSlide + 1); // Swipe left - next slide
+        }
+        if (touchEndX > touchStartX + 50) {
+          goToSlide(currentSlide - 1); // Swipe right - previous slide
+        }
+      }
+      
+      // Auto-rotate slides (optional)
+      // let slideInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
+      
+      // Pause auto-rotation on hover
+      // slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+      // slider.addEventListener('mouseleave', () => {
+      //   slideInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
+      // });
+    });
+    
+    function closeSlider() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>

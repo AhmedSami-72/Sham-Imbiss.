@@ -213,10 +213,10 @@
 
     .about-content {
       text-align: center;
-      max-width: 800px;
+      /* max-width: 800px; */
       margin: 0 auto;
-      background-color: var(--white);
-      border-radius: var(--radius);
+      /* background-color: var(--white); */
+      /* border-radius: var(--radius); */
     }
 
     /* Gallery */

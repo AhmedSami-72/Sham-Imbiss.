@@ -17,12 +17,14 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: var(--text);
   background-color: var(--primary-lighter);
-  overflow-x: hidden;
+  overflow-x: hidden; /* منع التمرير الأفقي */
+  width: 100%;
+  max-width: 100vw; /* التأكد من أن العرض لا يتجاوز عرض viewport */
 }
 
 .container {
@@ -34,17 +36,21 @@ body {
 
 /* Content Sections */
 .content-section {
-  padding: 80px 0 60px;
-  min-height: 60vh;
+  padding: 60px 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .content-title {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   color: var(--primary);
   position: relative;
   padding-bottom: 15px;
-  font-size: 2.2rem;
+  font-size: 2rem;
+  width: 100%;
 }
 
 .content-title:after {
@@ -61,46 +67,70 @@ body {
 .content-container {
   background-color: var(--white);
   border-radius: var(--radius);
-  padding: 40px;
+  padding: 30px;
   box-shadow: var(--shadow);
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 100%; /* منع تجاوز العرض */
+  overflow-wrap: break-word; /* كسر الكلمات الطويلة */
+  word-wrap: break-word; /* دعم المتصفحات القديمة */
 }
 
 .content-container h2 {
   color: var(--primary);
-  margin: 25px 0 15px;
-  font-size: 1.6rem;
+  margin: 20px 0 12px;
+  font-size: 1.5rem;
+  overflow-wrap: break-word;
 }
 
 .content-container h3 {
   color: var(--primary);
-  margin: 20px 0 12px;
-  font-size: 1.3rem;
+  margin: 18px 0 10px;
+  font-size: 1.2rem;
+  overflow-wrap: break-word;
 }
 
 .content-container p {
-  margin-bottom: 15px;
-  line-height: 1.7;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  overflow-wrap: break-word;
 }
 
 .content-container ul, .content-container ol {
-  margin: 15px 0 15px 20px;
+  margin: 12px 0 12px 20px;
+  overflow-wrap: break-word;
 }
 
 .content-container li {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  overflow-wrap: break-word;
+}
+
+.content-container a {
+  overflow-wrap: break-word;
+  word-break: break-all; /* لكسر الروابط الطويلة */
+}
+
+.content-container hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 20px 0;
 }
 
 .back-home {
   display: inline-block;
   margin-top: 20px;
-  padding: 12px 25px;
+  padding: 10px 20px;
   background-color: var(--primary);
   color: white;
   text-decoration: none;
   border-radius: var(--radius);
   font-weight: bold;
   transition: var(--transition);
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
 }
 
 .back-home:hover {
@@ -112,25 +142,32 @@ body {
 .site-footer {
   background-color: var(--primary);
   color: var(--white);
-  padding: 30px 0 15px;
+  padding: 20px 0 10px;
+  width: 100%;
+  max-width: 100vw; /* منع تجاوز الفوتر للعرض */
 }
 
 .footer-content {
   text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .footer-links {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .footer-links a {
   color: var(--white);
   text-decoration: none;
   margin: 0 10px;
-  padding: 8px 15px;
+  padding: 6px 12px;
   border-radius: var(--radius);
   transition: var(--transition);
   display: inline-block;
+  overflow-wrap: break-word;
 }
 
 .footer-links a:hover {
@@ -139,54 +176,53 @@ body {
 }
 
 .copyright {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  overflow-wrap: break-word;
 }
 
 /* Floating buttons - WhatsApp and arrow same size */
 .floating-buttons {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 15px;
+  bottom: 15px;
   z-index: 999;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .whatsapp-float {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background-color: #25D366;
   color: white;
   text-decoration: none;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: var(--transition);
-  font-size: 1.5rem;
-  animation: pulse 2s infinite;
+  font-size: 1.3rem;
 }
 
 .whatsapp-float:hover {
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
   background-color: #128C7E;
-  animation: none;
 }
 
 .back-to-top {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background-color: var(--primary);
   color: white;
   text-decoration: none;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: var(--transition);
   opacity: 0;
   pointer-events: none;
@@ -198,57 +234,150 @@ body {
 }
 
 .back-to-top:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
   background-color: var(--white);
   color: var(--primary);
-}
-
-/* Animations */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
 }
 
 /* Responsive */
 @media (max-width: 992px) {
   .content-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .content-container {
+    padding: 25px;
   }
 }
 
 @media (max-width: 768px) {
   .content-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
   }
 
   .content-container {
-    padding: 25px;
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .content-container h2 {
+    font-size: 1.4rem;
+  }
+  
+  .content-container h3 {
+    font-size: 1.1rem;
   }
   
   .floating-buttons {
-    right: 15px;
-    bottom: 15px;
+    right: 12px;
+    bottom: 12px;
+    gap: 10px;
   }
 
   .whatsapp-float, .back-to-top {
-    width: 45px;
-    height: 45px;
-    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .content-title {
-    font-size: 1.6rem;
+  .container {
+    padding: 0 15px;
   }
   
   .content-section {
-    padding: 60px 0 40px;
+    padding: 40px 0;
+  }
+  
+  .content-title {
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .content-title:after {
+    width: 60px;
+    height: 2px;
   }
   
   .content-container {
-    padding: 20px;
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .content-container h2 {
+    font-size: 1.3rem;
+    margin: 18px 0 10px;
+  }
+  
+  .content-container h3 {
+    font-size: 1.1rem;
+    margin: 15px 0 8px;
+  }
+  
+  .content-container p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+  
+  .back-home {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    max-width: 180px;
+  }
+  
+  .site-footer {
+    padding: 15px 0 8px;
+  }
+  
+  .footer-links a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+  }
+  
+  .copyright {
+    font-size: 0.8rem;
+  }
+  
+  .floating-buttons {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .whatsapp-float, .back-to-top {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .content-title {
+    font-size: 1.4rem;
+  }
+  
+  .content-container {
+    padding: 15px;
+  }
+  
+  .content-container h2 {
+    font-size: 1.2rem;
+  }
+  
+  .content-container h3 {
+    font-size: 1rem;
+  }
+  
+  .content-container p {
+    font-size: 0.9rem;
+  }
+  
+  .footer-links a {
+    display: block;
+    margin: 5px 0;
   }
 }

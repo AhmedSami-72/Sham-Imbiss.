@@ -1,0 +1,254 @@
+/* styles-extra.css */
+:root {
+  --primary: #4CAF50;
+  --primary-light: #f8f8f2;
+  --primary-lighter: #ffffff;
+  --text: #333333;
+  --white: #FFFFFF;
+  --beige: #f5f5f0;
+  --shadow: 0 4px 12px rgba(0,0,0,0.1);
+  --radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--primary-lighter);
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Content Sections */
+.content-section {
+  padding: 80px 0 60px;
+  min-height: 60vh;
+}
+
+.content-title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--primary);
+  position: relative;
+  padding-bottom: 15px;
+  font-size: 2.2rem;
+}
+
+.content-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary);
+}
+
+.content-container {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  padding: 40px;
+  box-shadow: var(--shadow);
+  margin-bottom: 40px;
+}
+
+.content-container h2 {
+  color: var(--primary);
+  margin: 25px 0 15px;
+  font-size: 1.6rem;
+}
+
+.content-container h3 {
+  color: var(--primary);
+  margin: 20px 0 12px;
+  font-size: 1.3rem;
+}
+
+.content-container p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.content-container ul, .content-container ol {
+  margin: 15px 0 15px 20px;
+}
+
+.content-container li {
+  margin-bottom: 8px;
+}
+
+.back-home {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.back-home:hover {
+  background-color: var(--text);
+  color: var(--white);
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 30px 0 15px;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: var(--white);
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 8px 15px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  background-color: rgba(255,255,255,0.2);
+  text-decoration: none;
+}
+
+.copyright {
+  font-size: 0.9rem;
+}
+
+/* Floating buttons - WhatsApp and arrow same size */
+.floating-buttons {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.whatsapp-float {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: var(--transition);
+  font-size: 1.5rem;
+  animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  background-color: #128C7E;
+  animation: none;
+}
+
+.back-to-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: var(--transition);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  background-color: var(--white);
+  color: var(--primary);
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .content-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-title {
+    font-size: 1.8rem;
+  }
+
+  .content-container {
+    padding: 25px;
+  }
+  
+  .floating-buttons {
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .whatsapp-float, .back-to-top {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-title {
+    font-size: 1.6rem;
+  }
+  
+  .content-section {
+    padding: 60px 0 40px;
+  }
+  
+  .content-container {
+    padding: 20px;
+  }
+}

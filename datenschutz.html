@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Datenschutz - Sham Imbiss Ochsenfurt</title>
+  <meta name="description" content="Datenschutzerklärung für Sham Imbiss Ochsenfurt" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="script.css">
+</head>
+<body>
+  <!-- Content Section -->
+  <section class="content-section">
+    <div class="container">
+      <h1 class="content-title">Datenschutzerklärung</h1>
+      
+      <div class="content-container">
+        <h2>1. Datenschutz auf einen Blick</h2>
+        <h3>Allgemeine Hinweise</h3>
+        <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+        
+        <h3>Datenerfassung auf unserer Website</h3>
+        <p>Wer verantwortlich ist für die Datenerfassung auf dieser Website?<br>
+        Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+        
+        <h2>2. Allgemeine Hinweise und Pflichtinformationen</h2>
+        <h3>Datenschutz</h3>
+        <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+        
+        <h3>Hinweis zur verantwortlichen Stelle</h3>
+        <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+        <p>Sham Imbiss<br>
+        Hauptstraße 72<br>
+        97199 Ochsenfurt<br>
+        Telefon: 09331/98 93 267<br>
+        E-Mail: info@sham-imbiss-ochsenfurt.de</p>
+        
+        <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
+        <p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Dazu reicht eine formlose Mitteilung per E-Mail an uns.</p>
+        
+        <h3>SSL- bzw. TLS-Verschlüsselung</h3>
+        <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL-bzw. TLS-Verschlüsselung.</p>
+        
+        <h2>3. Datenerfassung auf unserer Website</h2>
+        <h3>Cookies</h3>
+        <p>Die Internetseiten verwenden teilweise so genannte Cookies. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen.</p>
+        
+        <h3>Server-Log-Dateien</h3>
+        <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
+        <ul>
+          <li>Browsertyp und Browserversion</li>
+          <li>verwendetes Betriebssystem</li>
+          <li>Referrer URL</li>
+          <li>Hostname des zugreifenden Rechners</li>
+          <li>Uhrzeit der Serveranfrage</li>
+          <li>IP-Adresse</li>
+        </ul>
+        
+        <a href="index.html" class="back-home">Zurück zur Startseite</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 Sham Imbiss Ochsenfurt. Alle Rechte vorbehalten.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating buttons -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/4993319893267" class="whatsapp-float" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+
+  <script>
+    // Back to top button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>

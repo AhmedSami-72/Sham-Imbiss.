@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Impressum - Sham Imbiss Ochsenfurt</title>
+  <meta name="description" content="Impressum for Sham Imbiss Ochsenfurt" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="script.css">
+</head>
+<body>
+  <!-- Content Section -->
+  <section class="content-section">
+    <div class="container">
+      <h1 class="content-title">Impressum</h1>
+      
+      <div class="content-container">
+        <h2>Angaben gemäß § 5 TMG:</h2>
+        <p>Sham Imbiss<br>
+        Hauptstraße 72<br>
+        97199 Ochsenfurt</p>
+        
+        <h2>Kontakt:</h2>
+        <p>Telefon: 09331/98 93 267<br>
+        E-Mail: info@sham-imbiss-ochsenfurt.de</p>
+        
+        <h2>Umsatzsteuer-ID:</h2>
+        <p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br>
+        DE123456789</p>
+        
+        <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</h2>
+        <p>Mustermann Mustermann<br>
+        Hauptstraße 72<br>
+        97199 Ochsenfurt</p>
+        
+        <h2>EU-Streitschlichtung</h2>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
+        <a href="https://ec.europa.eu/consumers/odr/" target="_blank">https://ec.europa.eu/consumers/odr/</a>.<br> 
+        Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+        
+        <h2>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h2>
+        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        
+        <a href="index.html" class="back-home">Zurück zur Startseite</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 Sham Imbiss Ochsenfurt. Alle Rechte vorbehalten.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating buttons -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/4993319893267" class="whatsapp-float" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+
+  <script>
+    // Back to top button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>
